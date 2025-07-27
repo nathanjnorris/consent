@@ -13,9 +13,10 @@ plugins:
 # Font configuration
 fonts:
   preconnect_urls:
-    - https://fonts.gstatic.com
+    - "https://fonts.googleapis.com"
+    - "https://fonts.gstatic.com"
   font_urls:
-    - https://fonts.googleapis.com/css2?family=Monoton&family=Caprasimo&display=swap
+    - "https://fonts.googleapis.com/css2?family=Caprasimo&family=Monoton&display=swap"
 
 # Consent Status Configuration
 # Change this value to update the consent status
