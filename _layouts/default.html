@@ -39,6 +39,8 @@
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
             padding: 20px;
+            position: relative;
+            overflow: hidden;
         }
 
         @keyframes gradientShift {
@@ -47,10 +49,37 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* Lava lamp outline */
+        .lava-lamp-outline {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(90vw, 600px);
+            height: min(90vh, 800px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .lava-lamp-outline svg {
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+        }
+
+        .lava-lamp-outline path {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.6);
+            stroke-width: 3;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+
         .status-container {
             text-align: center;
             max-width: 500px;
             width: 100%;
+            position: relative;
+            z-index: 2;
         }
 
         .status-display {
@@ -309,6 +338,11 @@
             .status-icon {
                 font-size: 60px;
             }
+
+            .lava-lamp-outline {
+                width: 100vw;
+                height: 100vh;
+            }
         }
 
         /* QR code scanning optimization */
@@ -343,6 +377,34 @@
     </style>
 </head>
 <body>
+    <!-- Lava lamp outline -->
+    <div class="lava-lamp-outline" aria-hidden="true">
+        <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+            <path d="M150 20 
+                     C120 20, 90 40, 90 70
+                     L90 280
+                     C90 310, 100 330, 110 340
+                     L120 350
+                     C130 360, 140 365, 150 365
+                     C160 365, 170 360, 180 350
+                     L190 340
+                     C200 330, 210 310, 210 280
+                     L210 70
+                     C210 40, 180 20, 150 20
+                     Z
+                     M130 365
+                     L130 375
+                     C130 380, 135 385, 150 385
+                     C165 385, 170 380, 170 375
+                     L170 365
+                     M110 385
+                     L110 390
+                     C110 395, 125 400, 150 400
+                     C175 400, 190 395, 190 390
+                     L190 385" />
+        </svg>
+    </div>
+
     <!-- SVG Filters for gooey effect -->
     <svg style="position: absolute; width: 0; height: 0;">
         <defs>
