@@ -1,0 +1,11 @@
+{% if site.fonts.preconnect_urls %}
+  {% for url in site.fonts.preconnect_urls %}
+    <link rel="preconnect" href="{{ url }}" crossorigin />
+  {% endfor %}
+{% endif %}
+
+{% if site.fonts.font_urls %}
+  {% for url in site.fonts.font_urls %}
+    <link rel="stylesheet" href="{{ url }}" />
+  {% endfor %}
+{% endif %}

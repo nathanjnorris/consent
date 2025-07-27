@@ -10,6 +10,13 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
 
+# Font configuration
+fonts:
+  preconnect_urls:
+    - https://fonts.gstatic.com
+  font_urls:
+    - https://fonts.googleapis.com/css2?family=Monoton&family=Caprasimo&display=swap
+
 # Consent Status Configuration
 # Change this value to update the consent status
 # Valid values: "given" or "withdrawn"
