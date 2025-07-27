@@ -9,19 +9,15 @@ layout: default
              role="banner">
       {% if site.consent_status == "given" %}
         <div class="status-icon" aria-hidden="true">✓</div>
-        <div class="status-text">
-          <h1 id="consent-status">CONSENT</h1>
-          <h1>GIVEN</h1>
-        </div>
+        <div class="status-line1">CONSENT</div>
+        <div class="status-line2">GIVEN</div>
         <p class="status-message" aria-describedby="consent-status">
           <strong>Lucinda Christine Kay</strong> can follow or approach <strong>Nathan James Norris</strong> when at any place.
         </p>
       {% else %}
         <div class="status-icon" aria-hidden="true">✗</div>
-        <div class="status-text">
-          <h1 id="consent-status">CONSENT</h1>
-          <h1>WITHDRAWN</h1>
-        </div>
+        <div class="status-line1">CONSENT</div>
+        <div class="status-line2">WITHDRAWN</div>
         <p class="status-message" aria-describedby="consent-status">
           <strong>Lucinda Christine Kay</strong> cannot follow or approach <strong>Nathan James Norris</strong> when at any place.
         </p>
