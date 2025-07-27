@@ -295,7 +295,6 @@
                 if (!isNaN(utcDate.getTime())) {
                     // Format to user's local timezone with timezone
                     const formatter = new Intl.DateTimeFormat('en-US', {
-                        weekday: 'long',
                         day: 'numeric',
                         month: 'long', 
                         year: 'numeric',
@@ -308,7 +307,6 @@
                     const parts = formatter.formatToParts(utcDate);
                     
                     // Extract parts
-                    const weekday = parts.find(p => p.type === 'weekday')?.value || '';
                     const day = parts.find(p => p.type === 'day')?.value || '';
                     const month = parts.find(p => p.type === 'month')?.value || '';
                     const year = parts.find(p => p.type === 'year')?.value || '';
@@ -317,13 +315,15 @@
                     const dayPeriod = parts.find(p => p.type === 'dayPeriod')?.value || '';
                     const timeZoneName = parts.find(p => p.type === 'timeZoneName')?.value || '';
                     
-                    // Format as "Sunday, 27 July 2025 4:32pm GMT+10"
-                    const localTimeString = `${weekday}, ${day} ${month} ${year} ${hour}:${minute}${dayPeriod.toLowerCase()}${timeZoneName ? ' ' + timeZoneName : ''}`;
+                    // Format as "27 July 2025 4:32pm GMT+10"
+                    const localTimeString = `${day} ${month} ${year} ${hour}:${minute}${dayPeriod.toLowerCase()}${timeZoneName ? ' ' + timeZoneName : ''}`;
                     
                     localElement.textContent = 'Last updated: ' + localTimeString;
                 }
             }
         });
     </script>
+</body>
+</html>
 </body>
 </html>
