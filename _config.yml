@@ -19,9 +19,8 @@ fonts:
     - "https://fonts.googleapis.com/css2?family=Righteous&family=Monoton&display=swap"
 
 # Consent Status Configuration
-# Change this value to update the consent status
 # Valid values: "given" or "withdrawn"
-consent_status: "withdrawn"
+consent_status: "given"
 
 # Dynamically populated when GH runner builds site
 last_updated: ""
