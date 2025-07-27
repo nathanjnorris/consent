@@ -58,7 +58,7 @@
             width: min(95vw, 650px);
             height: min(90vh, 750px);
             pointer-events: none;
-            z-index: 1;
+            z-index: 0;
         }
 
         .lava-lamp-outline svg {
@@ -90,11 +90,10 @@
 
         .status-container {
             text-align: center;
-            max-width: 500px;
-            width: 100%;
+            max-width: 450px;
+            width: 90%;
             position: relative;
             z-index: 2;
-            padding: 20px;
         }
 
         .status-display {
@@ -109,6 +108,7 @@
             gap: 0 20px;
             align-items: start;
             z-index: 1;
+            max-width: 100%;
         }
 
         .status-display::before {
@@ -132,19 +132,19 @@
         @keyframes morph {
             0%, 100% {
                 border-radius: 30px 40px 30px 40px;
-                transform: translateY(0) scale(1);
+                transform: translateY(0) scale(1) translateX(0);
             }
             25% {
                 border-radius: 40px 30px 50px 30px;
-                transform: translateY(-5px) scale(1.01);
+                transform: translateY(-10px) scale(1.01) translateX(-5px);
             }
             50% {
                 border-radius: 30px 50px 30px 40px;
-                transform: translateY(0) scale(1);
+                transform: translateY(0) scale(1) translateX(5px);
             }
             75% {
                 border-radius: 50px 30px 40px 30px;
-                transform: translateY(5px) scale(0.99);
+                transform: translateY(10px) scale(0.99) translateX(-3px);
             }
         }
 
@@ -326,15 +326,15 @@
         @keyframes morphSmall {
             0%, 100% {
                 border-radius: 20px 25px 20px 25px;
-                transform: translateX(0) scale(1);
+                transform: translateX(0) scale(1) translateY(0);
             }
             33% {
                 border-radius: 25px 20px 30px 20px;
-                transform: translateX(-3px) scale(1.02);
+                transform: translateX(-5px) scale(1.02) translateY(-3px);
             }
             66% {
                 border-radius: 20px 30px 20px 25px;
-                transform: translateX(3px) scale(0.98);
+                transform: translateX(5px) scale(0.98) translateY(3px);
             }
         }
 
