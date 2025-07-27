@@ -186,12 +186,13 @@
                     
                     let localTimeString = utcDate.toLocaleDateString('en-US', options);
                     
-                    // Get timezone abbreviation
+                    // Get timezone abbreviation using a more reliable method
                     const timeZoneOptions = {
+                        hour: 'numeric',
                         timeZoneName: 'short'
                     };
-                    const timeZoneString = utcDate.toLocaleDateString('en-US', timeZoneOptions);
-                    const timeZoneMatch = timeZoneString.match(/([A-Z]{3,4})$/);
+                    const timeZoneString = utcDate.toLocaleTimeString('en-US', timeZoneOptions);
+                    const timeZoneMatch = timeZoneString.match(/([A-Z]{2,5})$/i);
                     const timeZone = timeZoneMatch ? timeZoneMatch[1] : '';
                     
                     // Custom formatting to match "Sunday, 27 July 2025 10:32am AEST"
@@ -203,7 +204,7 @@
                     
                     // Add timezone if available
                     if (timeZone) {
-                        localTimeString += ' ' + timeZone;
+                        localTimeString += ' ' + timeZone.toUpperCase();
                     }
                     
                     localElement.textContent = 'Last updated: ' + localTimeString;
