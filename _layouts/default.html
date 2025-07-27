@@ -55,36 +55,36 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: min(80vw, 500px);
-            height: min(85vh, 700px);
+            width: min(95vw, 650px);
+            height: min(90vh, 750px);
             pointer-events: none;
-            z-index: 0;
+            z-index: 1;
         }
 
         .lava-lamp-outline svg {
             width: 100%;
             height: 100%;
-            opacity: 0.25;
+            opacity: 0.5;
         }
 
         .lava-lamp-outline path {
             fill: none;
-            stroke: rgba(255, 255, 255, 0.4);
-            stroke-width: 4;
+            stroke: rgba(255, 255, 255, 0.8);
+            stroke-width: 3;
             stroke-linecap: round;
             stroke-linejoin: round;
-            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
             animation: lampPulse 10s ease-in-out infinite;
         }
 
         @keyframes lampPulse {
             0%, 100% {
-                opacity: 0.4;
-                filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+                opacity: 0.8;
+                filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
             }
             50% {
-                opacity: 0.6;
-                filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.5));
+                opacity: 1;
+                filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.7));
             }
         }
 
@@ -94,6 +94,7 @@
             width: 100%;
             position: relative;
             z-index: 2;
+            padding: 20px;
         }
 
         .status-display {
@@ -394,21 +395,21 @@
     <!-- Lava lamp outline -->
     <div class="lava-lamp-outline" aria-hidden="true">
         <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
-            <path d="M150 30
-                     C110 30, 80 50, 80 90
-                     C80 120, 85 140, 85 170
-                     C85 190, 75 210, 75 240
-                     C75 270, 85 290, 95 310
-                     C105 330, 115 340, 125 350
-                     C135 360, 140 365, 145 368
-                     C148 370, 150 370, 150 370
-                     C150 370, 152 370, 155 368
-                     C160 365, 165 360, 175 350
-                     C185 340, 195 330, 205 310
-                     C215 290, 225 270, 225 240
-                     C225 210, 215 190, 215 170
-                     C215 140, 220 120, 220 90
-                     C220 50, 190 30, 150 30
+            <path d="M150 40
+                     C100 40, 60 60, 60 100
+                     C60 130, 65 150, 65 180
+                     C65 200, 55 220, 55 250
+                     C55 280, 65 300, 80 320
+                     C95 340, 110 350, 125 360
+                     C135 367, 142 370, 148 372
+                     C149 372.5, 150 372.5, 150 372.5
+                     C150 372.5, 151 372.5, 152 372
+                     C158 370, 165 367, 175 360
+                     C190 350, 205 340, 220 320
+                     C235 300, 245 280, 245 250
+                     C245 220, 235 200, 235 180
+                     C235 150, 240 130, 240 100
+                     C240 60, 200 40, 150 40
                      Z" />
         </svg>
     </div>
