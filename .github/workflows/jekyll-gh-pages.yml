@@ -28,6 +28,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Update timestamp in config
+        run: |
+          # Get current UTC timestamp
+          TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M:%S UTC')
+          # Update the last_updated field in _config.yml
+          sed -i "s/last_updated: .*/last_updated: \"$TIMESTAMP\"/" _config.yml
+          echo "Updated timestamp to: $TIMESTAMP"
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
