@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .status-container {
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .status-display {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .status-given {
+            border-left: 8px solid #4CAF50;
+        }
+
+        .status-withdrawn {
+            border-left: 8px solid #f44336;
+        }
+
+        .status-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .status-given .status-icon {
+            color: #4CAF50;
+        }
+
+        .status-withdrawn .status-icon {
+            color: #f44336;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .status-given h1 {
+            color: #2E7D32;
+        }
+
+        .status-withdrawn h1 {
+            color: #C62828;
+        }
+
+        .status-message {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        .last-updated {
+            background: rgba(255, 255, 255, 0.9);
+            color: #666;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            .status-display {
+                padding: 40px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .status-icon {
+                font-size: 60px;
+            }
+        }
+
+        /* QR code scanning optimization */
+        @media (max-width: 400px) {
+            body {
+                padding: 10px;
+            }
+            
+            .status-display {
+                padding: 30px 15px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+                letter-spacing: 1px;
+            }
+            
+            .status-message {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    {{ content }}
+</body>
+</html>

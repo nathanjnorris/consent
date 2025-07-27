@@ -1,0 +1,20 @@
+# Jekyll Configuration
+title: "Consent Status"
+description: "Current consent status display"
+baseurl: ""
+url: "https://nathanjnorris.github.io"
+
+# GitHub Pages settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Consent Status Configuration
+# Change this value to update the consent status
+# Valid values: "given" or "withdrawn"
+consent_status: "given"
+
+# Optional: Add a timestamp for when status was last changed
+last_updated: "2025-07-27 12:00:00"
