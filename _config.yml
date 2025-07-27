@@ -1,8 +1,8 @@
 # Jekyll Configuration
-title: "Consent Status"
+title: "Consent"
 description: "Current consent status display"
 baseurl: ""
-url: "https://nathanjnorris.github.io"
+url: "https://consent.nathanjn.com"
 
 # GitHub Pages settings
 markdown: kramdown
@@ -16,5 +16,5 @@ plugins:
 # Valid values: "given" or "withdrawn"
 consent_status: "given"
 
-# Optional: Add a timestamp for when status was last changed
-last_updated: "2025-07-27 12:00:00"
+# Dynamically populated when GH runner builds site
+last_updated: ""

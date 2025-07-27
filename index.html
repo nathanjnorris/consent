@@ -17,7 +17,8 @@ layout: default
   
   {% if site.last_updated %}
   <div class="last-updated">
-    Last updated: {{ site.last_updated }}
+    <span id="timestamp-utc" style="display: none;">{{ site.last_updated }}</span>
+    <span id="timestamp-local">Last updated: {{ site.last_updated | date: "%d %B %Y %I:%M %p" | downcase }}</span>
   </div>
   {% endif %}
 </div>
