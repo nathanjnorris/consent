@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ site.title }}</title>
     
+    <!-- Block search engines -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    
+    <!-- Accessibility meta tags -->
+    <meta name="description" content="Current consent status">
+    
     <!-- Dynamic Favicon based on consent status -->
     {% if site.consent_status == "given" %}
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✅</text></svg>">
@@ -85,16 +92,16 @@
         }
 
         .status-given h1 {
-            color: #2E7D32;
+            color: #1B5E20;
         }
 
         .status-withdrawn h1 {
-            color: #C62828;
+            color: #B71C1C;
         }
 
         .status-message {
             font-size: 1.2em;
-            color: #666;
+            color: #424242;
             margin: 0;
             text-align: left;
         }
@@ -103,9 +110,56 @@
             white-space: nowrap;
         }
 
+        /* Focus management and keyboard navigation */
+        *:focus {
+            outline: 3px solid #4A90E2;
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .status-given h1 {
+                color: #000000;
+            }
+            
+            .status-withdrawn h1 {
+                color: #000000;
+            }
+            
+            .status-message {
+                color: #000000;
+            }
+            
+            .last-updated {
+                background: #FFFFFF;
+                color: #000000;
+                border: 2px solid #000000;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .status-display {
+                transition: none;
+            }
+        }
+
+        /* Screen reader only class */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         .last-updated {
-            background: rgba(255, 255, 255, 0.9);
-            color: #666;
+            background: rgba(255, 255, 255, 0.95);
+            color: #424242;
             padding: 8px 15px;
             border-radius: 10px;
             font-size: 0.85em;

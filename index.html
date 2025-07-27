@@ -2,27 +2,35 @@
 layout: default
 ---
 
-<div class="status-container">
-  <div class="status-display {% if site.consent_status == 'given' %}status-given{% else %}status-withdrawn{% endif %}">
-    {% if site.consent_status == "given" %}
-      <div class="status-header">
-        <div class="status-icon">✓</div>
-        <h1>CONSENT GIVEN</h1>
-      </div>
-      <p class="status-message"><b>Lucinda Christine Kay</b> can follow or approach <b>Nathan James Norris</b> when at any place.</p>
-    {% else %}
-      <div class="status-header">
-        <div class="status-icon">✗</div>
-        <h1>CONSENT WITHDRAWN</h1>
-      </div>
-      <p class="status-message"><b>Lucinda Christine Kay</b> cannot follow or approach <b>Nathan James Norris</b> when at any place.</p>
+<main role="main" aria-label="Consent Status">
+  <div class="status-container">
+    <section class="status-display {% if site.consent_status == 'given' %}status-given{% else %}status-withdrawn{% endif %}" 
+             aria-label="Current consent status" 
+             role="banner">
+      {% if site.consent_status == "given" %}
+        <div class="status-header">
+          <div class="status-icon" aria-hidden="true">✓</div>
+          <h1 id="consent-status">CONSENT GIVEN</h1>
+        </div>
+        <p class="status-message" aria-describedby="consent-status">
+          <strong>Lucinda Christine Kay</strong> can follow or approach <strong>Nathan James Norris</strong> when at any place.
+        </p>
+      {% else %}
+        <div class="status-header">
+          <div class="status-icon" aria-hidden="true">✗</div>
+          <h1 id="consent-status">CONSENT WITHDRAWN</h1>
+        </div>
+        <p class="status-message" aria-describedby="consent-status">
+          <strong>Lucinda Christine Kay</strong> cannot follow or approach <strong>Nathan James Norris</strong> when at any place.
+        </p>
+      {% endif %}
+    </section>
+    
+    {% if site.last_updated %}
+    <footer class="last-updated" role="contentinfo" aria-label="Last updated information">
+      <span id="timestamp-utc" style="display: none;">{{ site.last_updated }}</span>
+      <time id="timestamp-local" datetime="{{ site.last_updated }}">Last updated: {{ site.last_updated | date: "%d %B %Y %I:%M %p" | downcase }}</time>
+    </footer>
     {% endif %}
   </div>
-  
-  {% if site.last_updated %}
-  <div class="last-updated">
-    <span id="timestamp-utc" style="display: none;">{{ site.last_updated }}</span>
-    <span id="timestamp-local">Last updated: {{ site.last_updated | date: "%d %B %Y %I:%M %p" | downcase }}</span>
-  </div>
-  {% endif %}
-</div>
+</main>
