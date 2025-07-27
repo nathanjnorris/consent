@@ -21,7 +21,7 @@ fonts:
 # Consent Status Configuration
 # Change this value to update the consent status
 # Valid values: "given" or "withdrawn"
-consent_status: "given"
+consent_status: "withdrawn"
 
 # Dynamically populated when GH runner builds site
 last_updated: ""
