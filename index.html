@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<div class="status-container">
+  <div class="status-display {% if site.consent_status == 'given' %}status-given{% else %}status-withdrawn{% endif %}">
+    {% if site.consent_status == "given" %}
+      <div class="status-icon">✓</div>
+      <h1>CONSENT GIVEN</h1>
+      <p class="status-message">Consent has been provided</p>
+    {% else %}
+      <div class="status-icon">✗</div>
+      <h1>CONSENT WITHDRAWN</h1>
+      <p class="status-message">Consent has been withdrawn</p>
+    {% endif %}
+  </div>
+  
+  {% if site.last_updated %}
+  <div class="last-updated">
+    Last updated: {{ site.last_updated }}
+  </div>
+  {% endif %}
+</div>
