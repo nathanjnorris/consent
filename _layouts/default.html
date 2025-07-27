@@ -67,6 +67,28 @@
             grid-template-rows: auto auto auto;
             gap: 0 20px;
             align-items: start;
+            filter: url(#goo);
+            animation: morph 8s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        @keyframes morph {
+            0%, 100% {
+                border-radius: 30px 40px 30px 40px;
+                transform: translateY(0) scale(1);
+            }
+            25% {
+                border-radius: 40px 30px 50px 30px;
+                transform: translateY(-5px) scale(1.01);
+            }
+            50% {
+                border-radius: 30px 50px 30px 40px;
+                transform: translateY(0) scale(1);
+            }
+            75% {
+                border-radius: 50px 30px 40px 30px;
+                transform: translateY(5px) scale(0.99);
+            }
         }
 
         .status-given {
@@ -189,6 +211,13 @@
         @media (prefers-reduced-motion: reduce) {
             .status-display {
                 transition: none;
+                animation: none;
+                filter: none;
+            }
+            
+            .last-updated {
+                animation: none;
+                filter: none;
             }
             
             body {
@@ -220,6 +249,23 @@
             font-family: 'Righteous', cursive;
             letter-spacing: 0.5px;
             box-shadow: 0 4px 20px rgba(196, 69, 105, 0.2);
+            filter: url(#goo-small);
+            animation: morphSmall 6s ease-in-out infinite;
+        }
+
+        @keyframes morphSmall {
+            0%, 100% {
+                border-radius: 20px 25px 20px 25px;
+                transform: translateX(0) scale(1);
+            }
+            33% {
+                border-radius: 25px 20px 30px 20px;
+                transform: translateX(-3px) scale(1.02);
+            }
+            66% {
+                border-radius: 20px 30px 20px 25px;
+                transform: translateX(3px) scale(0.98);
+            }
         }
 
         /* Mobile responsiveness */
@@ -271,6 +317,22 @@
     </style>
 </head>
 <body>
+    <!-- SVG Filters for gooey effect -->
+    <svg style="position: absolute; width: 0; height: 0;">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+            </filter>
+            <filter id="goo-small">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 15 -7" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+            </filter>
+        </defs>
+    </svg>
+    
     {{ content }}
     
     <script>
@@ -323,7 +385,5 @@
             }
         });
     </script>
-</body>
-</html>
 </body>
 </html>
