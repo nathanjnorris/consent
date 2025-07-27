@@ -8,17 +8,19 @@ layout: default
              aria-label="Current consent status" 
              role="banner">
       {% if site.consent_status == "given" %}
-        <div class="status-header">
-          <div class="status-icon" aria-hidden="true">✓</div>
-          <h1 id="consent-status">CONSENT GIVEN</h1>
+        <div class="status-icon" aria-hidden="true">✓</div>
+        <div class="status-text">
+          <h1 id="consent-status">CONSENT</h1>
+          <h1>GIVEN</h1>
         </div>
         <p class="status-message" aria-describedby="consent-status">
           <strong>Lucinda Christine Kay</strong> can follow or approach <strong>Nathan James Norris</strong> when at any place.
         </p>
       {% else %}
-        <div class="status-header">
-          <div class="status-icon" aria-hidden="true">✗</div>
-          <h1 id="consent-status">CONSENT WITHDRAWN</h1>
+        <div class="status-icon" aria-hidden="true">✗</div>
+        <div class="status-text">
+          <h1 id="consent-status">CONSENT</h1>
+          <h1>WITHDRAWN</h1>
         </div>
         <p class="status-message" aria-describedby="consent-status">
           <strong>Lucinda Christine Kay</strong> cannot follow or approach <strong>Nathan James Norris</strong> when at any place.
