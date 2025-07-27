@@ -98,13 +98,18 @@
             margin: 0;
         }
 
+        .status-message b {
+            white-space: nowrap;
+        }
+
         .last-updated {
             background: rgba(255, 255, 255, 0.9);
             color: #666;
-            padding: 10px 20px;
+            padding: 8px 15px;
             border-radius: 10px;
-            font-size: 0.9em;
+            font-size: 0.85em;
             backdrop-filter: blur(10px);
+            white-space: nowrap;
         }
 
         /* Mobile responsiveness */
@@ -146,6 +151,11 @@
             
             .status-message {
                 font-size: 1em;
+            }
+            
+            .last-updated {
+                font-size: 0.75em;
+                padding: 6px 12px;
             }
         }
     </style>
@@ -197,7 +207,7 @@
                     const dayPeriod = parts.find(p => p.type === 'dayPeriod')?.value || '';
                     const timeZoneName = parts.find(p => p.type === 'timeZoneName')?.value || '';
                     
-                    // Format as "Sunday, 27 July 2025 4:32pm AEST"
+                    // Format as "Sunday, 27 July 2025 4:32pm GMT+10"
                     const localTimeString = `${weekday}, ${day} ${month} ${year} ${hour}:${minute}${dayPeriod.toLowerCase()}${timeZoneName ? ' ' + timeZoneName : ''}`;
                     
                     localElement.textContent = 'Last updated: ' + localTimeString;

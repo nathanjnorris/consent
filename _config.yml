@@ -1,6 +1,5 @@
 # Jekyll Configuration
-title: "Consent"
-description: "Current consent status display"
+title: "Consent status"
 baseurl: ""
 url: "https://consent.nathanjn.com"
 
