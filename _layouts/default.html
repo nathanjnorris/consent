@@ -26,8 +26,10 @@
             box-sizing: border-box;
         }
 
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Fredoka+One&display=swap');
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Righteous', 'Arial Black', Arial, sans-serif;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -81,12 +83,14 @@
         }
 
         .status-line1, .status-line2 {
+            font-family: 'Fredoka One', 'Comic Sans MS', cursive;
             font-size: 2.5em;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             line-height: 1;
             margin: 0;
             text-align: left;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         .status-line1 {
@@ -128,12 +132,15 @@
         }
 
         .status-message {
+            font-family: 'Righteous', 'Arial Black', Arial, sans-serif;
             font-size: 1.2em;
             color: #424242;
             margin: 15px 0 0 0;
             text-align: left;
             grid-column: 1 / 3;
             grid-row: 3;
+            font-weight: 400;
+            letter-spacing: 0.5px;
         }
 
         .status-message b {
@@ -195,6 +202,8 @@
             font-size: 0.85em;
             backdrop-filter: blur(10px);
             white-space: nowrap;
+            font-family: 'Righteous', 'Arial Black', Arial, sans-serif;
+            letter-spacing: 0.5px;
         }
 
         /* Mobile responsiveness */
