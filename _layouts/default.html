@@ -57,12 +57,14 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 15px;
+            flex-wrap: nowrap;
         }
 
         .status-icon {
             font-size: 80px;
             line-height: 1;
             margin-right: 15px;
+            flex-shrink: 0;
         }
 
         .status-given .status-icon {
@@ -78,6 +80,8 @@
             font-weight: 700;
             letter-spacing: 2px;
             margin: 0;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .status-given h1 {
@@ -111,6 +115,7 @@
             
             h1 {
                 font-size: 2em;
+                letter-spacing: 1px;
             }
             
             .status-icon {
