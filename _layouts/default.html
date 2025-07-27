@@ -57,12 +57,14 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 15px;
+            flex-wrap: nowrap;
         }
 
         .status-icon {
             font-size: 80px;
             line-height: 1;
             margin-right: 15px;
+            flex-shrink: 0;
         }
 
         .status-given .status-icon {
@@ -78,6 +80,8 @@
             font-weight: 700;
             letter-spacing: 2px;
             margin: 0;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .status-given h1 {
@@ -111,6 +115,7 @@
             
             h1 {
                 font-size: 2em;
+                letter-spacing: 1px;
             }
             
             .status-icon {
@@ -181,12 +186,25 @@
                     
                     let localTimeString = utcDate.toLocaleDateString('en-US', options);
                     
-                    // Custom formatting to match "Sunday, 27 July 2025 10:32am"
+                    // Get timezone abbreviation
+                    const timeZoneOptions = {
+                        timeZoneName: 'short'
+                    };
+                    const timeZoneString = utcDate.toLocaleDateString('en-US', timeZoneOptions);
+                    const timeZoneMatch = timeZoneString.match(/([A-Z]{3,4})$/);
+                    const timeZone = timeZoneMatch ? timeZoneMatch[1] : '';
+                    
+                    // Custom formatting to match "Sunday, 27 July 2025 10:32am AEST"
                     localTimeString = localTimeString
                         .replace(/(\w+), (\w+) (\d+), (\d+) at (\d+):(\d+) (AM|PM)/, '$1, $3 $2 $4 $5:$6$7')
                         .replace(/(AM|PM)/g, function(match) { 
                             return match.toLowerCase(); 
                         });
+                    
+                    // Add timezone if available
+                    if (timeZone) {
+                        localTimeString += ' ' + timeZone;
+                    }
                     
                     localElement.textContent = 'Last updated: ' + localTimeString;
                 }
