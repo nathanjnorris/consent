@@ -1,4 +1,4 @@
-User-agent: *
-Disallow: /
 
-# Block all search engines from indexing this site
+# Allow site to be crawled
+User-agent: * 
+Disallow: 
