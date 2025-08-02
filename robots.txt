@@ -1,4 +1,5 @@
 
-# Allow site to be crawled
-User-agent: * 
-Disallow: 
+# For the robots <meta> tag to prevent indexing content by search engines, this robots.txt file must:
+
+User-agent: * # Allow all robots
+Disallow: # No pages are disallowed
