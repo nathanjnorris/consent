@@ -1,5 +1,8 @@
-User-agent: *
-Disallow: /
 
-# Block all search engines from indexing this site
-# This is a private consent status page
+# For the robots <meta> tag to prevent indexing content by search engines, this robots.txt file must:
+
+# Allow all robots to crawl
+User-agent: * 
+
+# Allow pages to be retrieved
+Disallow: 
