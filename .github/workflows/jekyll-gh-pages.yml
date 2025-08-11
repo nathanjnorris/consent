@@ -28,13 +28,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Update timestamp in config
-        run: |
-          # Get current UTC timestamp
-          TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M:%S UTC')
-          # Update the last_updated field in _config.yml
-          sed -i "s/last_updated: .*/last_updated: \"$TIMESTAMP\"/" _config.yml
-          echo "Updated timestamp to: $TIMESTAMP"
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
@@ -49,6 +42,13 @@ jobs:
   deploy:
     environment:
       name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
