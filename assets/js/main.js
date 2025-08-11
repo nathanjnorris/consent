@@ -11,9 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const utcTimeString = utcElement.textContent.trim();
         if (!utcTimeString) return;
         
-        // Parse UTC timestamp - handle both "UTC" suffix and without
-        const cleanTimeString = utcTimeString.replace(' UTC', '');
-        const utcDate = new Date(cleanTimeString + (utcTimeString.includes('UTC') ? '' : 'Z'));
+        // Parse UTC timestamp - normalize to ISO 8601 and ensure UTC
+        const isoUtc = utcTimeString
+            .replace(/\sUTC$/i, 'Z')   // " ... UTC" -> " ...Z"
+            .replace(' ', 'T');        // "YYYY-MM-DD HH:mm:ssZ" -> "YYYY-MM-DDTHH:mm:ssZ"
+        const utcDate = new Date(isoUtc);
         
         // Validate date
         if (isNaN(utcDate.getTime())) {
@@ -21,8 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         
-        // Use simpler formatter - directly format to desired output
-        const localTimeString = utcDate.toLocaleDateString('en-US', {
+        // Format in user's local timezone
+        const localTimeString = utcDate.toLocaleString('en-US', {
             day: 'numeric',
             month: 'long',
             year: 'numeric',
