@@ -20,6 +20,6 @@ fonts:
 
 # Consent Status Configuration
 # Valid values: "given" or "withdrawn"
-consent_status: "given"
+consent_status: "withdrawn"
 
 last_updated: "2025-06-18 03:30:00 UTC"
