@@ -1,7 +1,6 @@
 # Jekyll Configuration
 title: "Consent status"
 baseurl: ""
-url: "https://consent.nathanjn.com"
 
 # GitHub Pages settings
 markdown: kramdown
@@ -20,6 +19,6 @@ fonts:
 
 # Consent Status Configuration
 # Valid values: "given" or "withdrawn"
-consent_status: "withdrawn"
+consent_status: "given"
 
 last_updated: "2025-11-18 03:30:00 UTC"
